@@ -19,7 +19,7 @@ public class Accounts {
     private Long id;
 
     /** ユーザー名 **/
-    private String name;
+    private String username;
 
     /** パスワード **/
     private String password;
