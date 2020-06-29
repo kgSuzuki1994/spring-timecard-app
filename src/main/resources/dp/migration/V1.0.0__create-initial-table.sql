@@ -1,6 +1,6 @@
 drop table if exists users;
 
-CREATE TABLE 'users' (
+CREATE TABLE 'accounts' (
     'id' bigint unsigned not null auto_increment,
     'name' varchar(64) not null,
     'password' varchar(128) not null,

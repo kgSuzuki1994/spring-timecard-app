@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 @Setter
 @Getter
-public class Users {
+public class Accounts {
 
     /** 自動採番ID **/
     @Id
