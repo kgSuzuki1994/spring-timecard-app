@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class TimecardController {
+public class LoginController {
 
     @GetMapping(path = "login")
     public String login(@RequestParam(value = "error", required = false) String error,
