@@ -3,10 +3,7 @@ package com.example.springtimecardapp.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Setter
@@ -19,6 +16,7 @@ public class Accounts {
     private Long id;
 
     /** ユーザー名 **/
+    @Column(name = "username")
     private String username;
 
     /** パスワード **/
