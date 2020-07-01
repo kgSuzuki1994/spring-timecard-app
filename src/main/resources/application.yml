@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/timecard-app?autoReconnect=true&useSSL=false&serverTimezone=JST
+    username: root
+    password: Komeumai12
+    driver-class-name: com.mysql.jdbc.Driver
