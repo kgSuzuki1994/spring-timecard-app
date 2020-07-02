@@ -21,4 +21,13 @@ public class Accounts {
 
     /** パスワード **/
     private String password;
+
+    public static Accounts newAccounts(String username, String password) {
+        Accounts accounts = new Accounts();
+
+        accounts.username = username;
+        accounts.password = password;
+
+        return accounts;
+    }
 }
