@@ -16,9 +16,9 @@ public class MemberReistrationController {
     @RequestMapping("/signup")
     public String signup(Model model) {
 
-        model.addAttribute(new AccountsRegistrationRequest());
+        model.addAttribute("userRequest", new AccountsRegistrationRequest());
 
-        return "sigunup";
+        return "signup";
     }
 
     @RequestMapping("/register")
@@ -26,6 +26,6 @@ public class MemberReistrationController {
 
         // テーブルにinsertする
         accountsService.save(request.getUsername(), request.getPassword());
-        return "result";
+        return "register";
     }
 }
