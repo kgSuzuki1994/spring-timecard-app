@@ -35,9 +35,4 @@ public class LoginController {
         }
         return "login";
     }
-
-    @GetMapping("success")
-    public String success() {
-        return "success";
-    }
 }
