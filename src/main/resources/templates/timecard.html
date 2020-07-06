@@ -18,10 +18,12 @@
     setInterval('time()',1000);
 </script>
 
-<form action="timecard/recorded" method="post">
-    <button class="btn btn-lg btn-success" type="submit" name="begin">出勤
+<form th:action="@{/timecard/recorded}" method="post">
+    <button class="btn btn-lg btn-success" type="submit" name="begin"
+            th:value="begin">出勤
     </button>
-    <button class="btn btn-lg btn-danger" type="submit" name="finish">退勤
+    <button class="btn btn-lg btn-danger" type="submit" name="finish"
+            th:value="finish">退勤
     </button>
 </form>
 
