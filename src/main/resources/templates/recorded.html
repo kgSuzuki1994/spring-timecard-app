@@ -8,6 +8,9 @@
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
 </head>
 <body>
+<div th:text="*{#temporals.format(recordedTime, 'yyyy/MM/dd HH:mm')}">
+    ※DBに保存された出退勤の時間※
+</div>
 <div th:if="${showBeginMsg}" th:text="#{timecard.recorded.begin}">
     ※出社時のメッセージ※
 </div>
