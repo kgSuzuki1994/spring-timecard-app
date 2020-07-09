@@ -3,10 +3,9 @@ package com.example.springtimecardapp.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -21,12 +20,22 @@ public class Records {
     /** ユーザID **/
     private Long accountId;
 
-    /** 出退勤した日付 **/
-    private String recordDate;
-
     /** 出勤した時間 **/
+    @Temporal(TemporalType.DATE)
     private String beginTime;
 
     /** 退勤した時間 **/
+    @Temporal(TemporalType.DATE)
     private String finishTime;
+
+    public static Records newRecords(Long accountId, LocalDateTime beginTime) {
+        Records records = new Records();
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+        records.accountId = accountId;
+        records.beginTime = format.format(beginTime);
+
+        return records;
+    }
 }
