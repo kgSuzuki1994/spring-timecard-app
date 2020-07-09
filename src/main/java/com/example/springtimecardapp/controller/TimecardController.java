@@ -1,5 +1,7 @@
 package com.example.springtimecardapp.controller;
 
+import com.example.springtimecardapp.service.RecordsService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -13,7 +15,10 @@ import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("timecard")
+@RequiredArgsConstructor
 public class TimecardController {
+
+    private final RecordsService recordsService;
 
     @GetMapping
     public String timecard() {
@@ -35,7 +40,8 @@ public class TimecardController {
 
         if (begin != null) {
             model.addAttribute("showBeginMsg", true);
-            // TODO: DBに出社時刻を登録する
+            recordsService.insertBeginTime(userName, now);
+
         } else if (finish != null) {
             model.addAttribute("showFinishMsg", true);
             // TODO: DBに退社時刻を登録する
