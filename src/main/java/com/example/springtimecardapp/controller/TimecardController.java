@@ -44,7 +44,7 @@ public class TimecardController {
 
         } else if (finish != null) {
             model.addAttribute("showFinishMsg", true);
-            // TODO: DBに退社時刻を登録する
+            recordsService.saveFinishTime(userName, now);
         }
 
         return "recorded";
