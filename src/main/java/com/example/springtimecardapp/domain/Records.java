@@ -38,4 +38,14 @@ public class Records {
 
         return records;
     }
+
+    public static Records setFinishTime(Records records,
+                                        LocalDateTime finishTime) {
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+        records.finishTime = format.format(finishTime);
+
+        return records;
+    }
 }
