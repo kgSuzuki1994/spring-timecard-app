@@ -38,8 +38,13 @@ public class AccountsService {
                 .setParameter("userName", userName).getSingleResult();
     }
 
+    public Long findIdFromUsername(String userName) {
+
+        return findUser(userName).getId();
+    }
+
     public Accounts save(String username, String password) {
-        ;
+
         // パスワードはハッシュ化して、DBに登録する
         return accountsRepository.save(Accounts.newAccounts(username,
                 passwordEncoder.encode(password)));

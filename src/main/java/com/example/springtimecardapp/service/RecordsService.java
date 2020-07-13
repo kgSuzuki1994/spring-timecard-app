@@ -21,18 +21,24 @@ public class RecordsService {
     private final AccountsService accountsService;
 
     public Records insertBeginTime(String userName, LocalDateTime beginTime) {
-        Long userId = accountsService.findUser(userName).getId();
+
+        Long userId = getUserId(userName);
 
         return recordsRepository.save(Records.newRecords(userId, beginTime));
     }
 
     public Records saveFinishTime(String userName, LocalDateTime finishTime) {
 
-        Long userId = accountsService.findUser(userName).getId();
+        Long userId = getUserId(userName);
 
         Records records = selectLatestRecord(userId);
 
         return recordsRepository.save(Records.setFinishTime(records, finishTime));
+    }
+
+    private Long getUserId(String userName) {
+
+        return accountsService.findIdFromUsername(userName);
     }
 
     // ログインしているユーザIDで作成したレコードのうち、
